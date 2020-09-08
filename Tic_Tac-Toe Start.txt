@@ -1,0 +1,41 @@
+using System;
+
+namespace Tic_Tac_Toe
+{
+    class Program
+    {
+        static void Printboard(int[,] board)
+        {
+            Console.Clear();
+            Console.WriteLine("    A   B   C  ");
+            Console.WriteLine("  +---+---+---+");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"{i + 1} |");
+                for (int j = 0; j < 3; j++)
+                {
+                    string symbol;
+                    switch (board[i, j])
+                    {
+                        case 0: symbol = " "; break;
+                        case 1: symbol = "X"; break;
+                        default: symbol = "O"; break;
+                    }
+                    Console.Write($" {symbol} |");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("  +---+---+---+");
+        }
+        static void Main(string[] args)
+        {
+            int[,] board = new int[3, 3];
+            bool playerOne = true;
+            while (true)
+            {
+                Printboard(board);
+                Console.WriteLine();
+            }
+        }
+    }
+}
